@@ -2,413 +2,1138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hemraj Roka - Network Administrator, ISP Operations and System Administration.">
-<title>Hemraj Roka | Network Engineer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hemraj Roka - Junior Network Administrator specializing in ISP operations, network engineering, and IT infrastructure.">
+    <meta name="author" content="Hemraj Roka">
+    <title>Hemraj Roka | Network Administrator</title>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-body {
-    font-family: Arial, sans-serif;
-    background: #0b1120;
-    color: #f1f5f9;
-    line-height: 1.7;
-}
+    <style>
+        :root {
+            --bg: #08111f;
+            --bg-light: #0d1b2d;
+            --card: #101f33;
+            --blue: #38bdf8;
+            --blue-dark: #0284c7;
+            --text: #e5edf7;
+            --muted: #9aabc0;
+            --border: rgba(148, 163, 184, 0.16);
+            --white: #ffffff;
+        }
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-header {
-    padding: 22px 0;
-    border-bottom: 1px solid #263449;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #38bdf8;
-}
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
 
-nav a {
-    color: #cbd5e1;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 14px;
-}
+        /* NAVIGATION */
 
-nav a:hover {
-    color: #38bdf8;
-}
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8, 17, 31, 0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
 
-.hero {
-    min-height: 520px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px 0;
-}
+        nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-.hero h1 {
-    font-size: clamp(38px, 7vw, 60px);
-    line-height: 1.2;
-    margin: 15px 0;
-}
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--white);
+        }
 
-.hero h1 span {
-    color: #38bdf8;
-}
+        .logo span {
+            color: var(--blue);
+        }
 
-.hero p {
-    color: #94a3b8;
-    max-width: 650px;
-    font-size: 18px;
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
 
-.subtitle {
-    color: #38bdf8;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
+        .nav-links a {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
 
-.btn {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 12px 24px;
-    background: #0284c7;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-}
+        .nav-links a:hover {
+            color: var(--blue);
+        }
 
-.btn:hover {
-    background: #0369a1;
-}
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 27px;
+            cursor: pointer;
+        }
 
-section {
-    padding: 70px 0;
-    border-top: 1px solid #263449;
-}
+        /* BUTTONS */
 
-h2 {
-    font-size: 32px;
-    margin-bottom: 25px;
-    color: #38bdf8;
-}
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 22px;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s;
+            cursor: pointer;
+        }
 
-.about-text {
-    color: #cbd5e1;
-    max-width: 800px;
-}
+        .btn-primary {
+            background: var(--blue);
+            color: #06111e;
+        }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-}
+        .btn-primary:hover {
+            background: #7dd3fc;
+            transform: translateY(-2px);
+        }
 
-.card {
-    background: #151f32;
-    padding: 25px;
-    border: 1px solid #263449;
-    border-radius: 10px;
-}
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
 
-.card h3 {
-    color: #38bdf8;
-    margin-bottom: 12px;
-}
+        .btn-outline:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
 
-.card p, .card li {
-    color: #cbd5e1;
-}
+        /* HERO */
 
-.card ul {
-    padding-left: 20px;
-}
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            padding: 85px 0;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(2, 132, 199, 0.13), transparent 30%),
+                radial-gradient(circle at 10% 80%, rgba(56, 189, 248, 0.07), transparent 30%);
+        }
 
-.tag {
-    display: inline-block;
-    padding: 7px 12px;
-    margin: 5px;
-    background: #172d45;
-    color: #7dd3fc;
-    border-radius: 5px;
-    font-size: 14px;
-}
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.5fr 0.8fr;
+            align-items: center;
+            gap: 50px;
+        }
 
-.contact a {
-    color: #38bdf8;
-    text-decoration: none;
-}
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 7px 13px;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 30px;
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
 
-footer {
-    padding: 25px;
-    text-align: center;
-    color: #94a3b8;
-    border-top: 1px solid #263449;
-}
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+        }
 
-@media(max-width: 650px) {
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
+        .eyebrow {
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
 
-    nav a {
-        margin: 5px;
-    }
+        h1 {
+            color: var(--white);
+            font-size: clamp(42px, 6vw, 66px);
+            line-height: 1.12;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
 
-    .hero {
-        min-height: 420px;
-    }
-}
-</style>
+        h1 span {
+            color: var(--blue);
+        }
+
+        .hero-description {
+            max-width: 610px;
+            color: var(--muted);
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .profile-photo {
+            width: 300px;
+            height: 350px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 20px;
+            border: 2px solid rgba(56, 189, 248, 0.5);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            justify-self: center;
+            background: var(--card);
+        }
+
+        /* QUICK INFO */
+
+        .quick-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: -25px;
+            position: relative;
+        }
+
+        .info-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .info-card h3 {
+            color: var(--blue);
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .info-card p {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            color: var(--blue);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            color: var(--white);
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .section-title span {
+            color: var(--blue);
+        }
+
+        .section-description {
+            color: var(--muted);
+            font-size: 14px;
+            max-width: 650px;
+            margin-top: 12px;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 45px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+
+        .about-highlight {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--blue);
+            border-radius: 9px;
+            padding: 25px;
+        }
+
+        .about-highlight h3 {
+            color: var(--white);
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .about-highlight ul {
+            list-style: none;
+        }
+
+        .about-highlight li {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .about-highlight li::before {
+            content: "✓";
+            color: var(--blue);
+            margin-right: 10px;
+            font-weight: 700;
+        }
+
+        /* EXPERIENCE */
+
+        .experience-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .experience-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            padding: 28px;
+            transition: 0.3s;
+        }
+
+        .experience-card:hover {
+            border-color: rgba(56, 189, 248, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .experience-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .experience-card h3 {
+            color: var(--white);
+            font-size: 17px;
+        }
+
+        .company {
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .date {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .experience-card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        .experience-card ul {
+            padding-left: 19px;
+            margin-top: 12px;
+        }
+
+        .experience-card li {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .skill-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .skill-card h3 {
+            color: var(--blue);
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tags span {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.13);
+            color: #c5d7e9;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 11px;
+        }
+
+        /* PROJECTS */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--blue);
+            transform: translateY(-3px);
+        }
+
+        .project-number {
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            color: var(--white);
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* EDUCATION */
+
+        .education-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 27px;
+            max-width: 700px;
+        }
+
+        .education-card h3 {
+            color: var(--white);
+            font-size: 17px;
+        }
+
+        .education-card .institution {
+            color: var(--blue);
+            font-size: 13px;
+            margin: 7px 0;
+        }
+
+        .education-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* CONTACT */
+
+        .contact-section {
+            background: var(--bg-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .contact-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .contact-card .contact-icon {
+            color: var(--blue);
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card h3 {
+            color: var(--white);
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .contact-card a,
+        .contact-card p {
+            color: var(--muted);
+            font-size: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-card a:hover {
+            color: var(--blue);
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 25px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        footer span {
+            color: var(--blue);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-light);
+                padding: 22px 5%;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero-layout {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 35px;
+            }
+
+            .profile-photo {
+                grid-row: 1;
+                width: 220px;
+                height: 250px;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .quick-info {
+                grid-template-columns: 1fr;
+                margin-top: 0;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .projects-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .experience-card {
+                padding: 21px;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-<div class="container">
-<nav>
-    <div class="logo">HEMRAJ.</div>
-    <div>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </div>
-</nav>
-</div>
-</header>
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">Hemraj<span>.</span></a>
 
-<main>
+                <button class="menu-toggle" id="menuToggle"
+                        aria-label="Toggle navigation"
+                        aria-expanded="false">
+                    ☰
+                </button>
 
-<div class="container">
-<div class="hero">
-    <div class="subtitle">NETWORK ENGINEERING | ISP OPERATIONS</div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <h1>Hello, I'm <span>Hemraj Roka</span></h1>
+    <main>
 
-    <p>
-        Junior Network Administrator with experience in ISP
-        Network Operations Center, network monitoring,
-        troubleshooting and enterprise connectivity.
-        Passionate about networking and system administration.
-    </p>
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-layout">
 
-    <a href="#contact" class="btn">Contact Me</a>
-</div>
-</div>
+                    <div class="hero-content">
+                        <div class="availability">
+                            <span class="status-dot"></span>
+                            Network & IT Infrastructure Professional
+                        </div>
 
-<section id="about">
-<div class="container">
-    <h2>About Me</h2>
+                        <div class="eyebrow">
+                            NETWORK ENGINEERING · ISP OPERATIONS
+                        </div>
 
-    <p class="about-text">
-        I am an IT professional currently working as a Junior
-        Network Administrator at Mercantile Communication Pvt. Ltd.
-        in the NOC Department.
+                        <h1>
+                            Hello, I'm<br>
+                            <span>Hemraj Roka.</span>
+                        </h1>
 
-        My experience includes monitoring network infrastructure,
-        troubleshooting Layer 2 and Layer 3 connectivity,
-        routing and switching, incident management and ISP operations.
+                        <p class="hero-description">
+                            Junior Network Administrator with hands-on
+                            experience in ISP Network Operations, network
+                            monitoring, Layer 2 and Layer 3 troubleshooting,
+                            routing, and enterprise connectivity.
+                        </p>
 
-        I am also expanding my knowledge in Linux administration,
-        Windows Server and virtualization technologies.
-    </p>
-</div>
-</section>
+                        <div class="hero-buttons">
+                            <a href="/Hemraj_Roka_CV.pdf"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-primary">
+                                View My CV ↗
+                            </a>
 
-<section id="experience">
-<div class="container">
-    <h2>Professional Experience</h2>
+                            <a href="#contact" class="btn btn-outline">
+                                Contact Me →
+                            </a>
+                        </div>
+                    </div>
 
-    <div class="grid">
+                    <img
+                        src="/hemraj.jpg"
+                        alt="Hemraj Roka - Junior Network Administrator"
+                        class="profile-photo"
+                        width="300"
+                        height="350"
+                    >
 
-        <div class="card">
-            <h3>Junior Network Administrator</h3>
-            <p><b>Mercantile Communication Pvt. Ltd.</b></p>
-            <p>August 2025 - Present</p>
-            <br>
-            <ul>
-                <li>24/7 ISP network monitoring and troubleshooting</li>
-                <li>Monitoring using Cacti, MRTG and Nagios</li>
-                <li>Layer 2 and Layer 3 troubleshooting</li>
-                <li>VLAN, OSPF, BGP and routing checks</li>
-                <li>Incident management and RCA</li>
-                <li>Customer and enterprise connectivity support</li>
-            </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK INFO -->
+        <div class="container">
+            <div class="quick-info">
+                <div class="info-card">
+                    <h3>Network Operations</h3>
+                    <p>ISP and Enterprise Networking</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Network Monitoring</h3>
+                    <p>NOC Operations and Troubleshooting</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>IT Infrastructure</h3>
+                    <p>Networking and System Administration</p>
+                </div>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>Intern Network Administrator</h3>
-            <p><b>Enterprise Network</b></p>
-            <p>May 2025 - July 2025</p>
-            <br>
-            <ul>
-                <li>Network infrastructure support</li>
-                <li>Basic network troubleshooting</li>
-                <li>Enterprise connectivity support</li>
-                <li>Network device configuration exposure</li>
-            </ul>
-        </div>
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="section-label">Get to know me</div>
+                    <h2 class="section-title">About <span>Me</span></h2>
+                </div>
 
-    </div>
-</div>
-</section>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                            I am a Junior Network Administrator working in
+                            the Network Operations Center (NOC) at Mercantile
+                            Communication Pvt. Ltd. I have experience in
+                            monitoring, maintaining, and troubleshooting
+                            ISP and enterprise network infrastructure.
+                        </p>
 
-<section id="skills">
-<div class="container">
-    <h2>Technical Skills</h2>
+                        <p>
+                            My professional interests include network
+                            engineering, routing and switching, network
+                            security, system administration, and IT
+                            infrastructure management.
+                        </p>
 
-    <div class="card">
-        <h3>Networking</h3>
-        <span class="tag">TCP/IP</span>
-        <span class="tag">VLAN</span>
-        <span class="tag">OSPF</span>
-        <span class="tag">BGP</span>
-        <span class="tag">MPLS</span>
-        <span class="tag">VPLS</span>
-        <span class="tag">VPN</span>
-        <span class="tag">LAN/WAN</span>
-        <span class="tag">Routing & Switching</span>
-    </div>
+                        <p>
+                            I enjoy learning new technologies, solving
+                            technical problems, and continuously improving
+                            my networking and system administration skills.
+                        </p>
+                    </div>
 
-    <br>
+                    <div class="about-highlight">
+                        <h3>Areas of Interest</h3>
+                        <ul>
+                            <li>Network Engineering</li>
+                            <li>ISP Network Operations</li>
+                            <li>Routing and Switching</li>
+                            <li>Network Security</li>
+                            <li>Linux and Windows Server</li>
+                            <li>Virtualization and Infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="card">
-        <h3>Network Technologies</h3>
-        <span class="tag">Cisco</span>
-        <span class="tag">Huawei</span>
-        <span class="tag">MikroTik</span>
-        <span class="tag">BDCOM</span>
-        <span class="tag">FortiGate</span>
-    </div>
+        <!-- EXPERIENCE -->
+        <section id="experience">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="section-label">Professional background</div>
+                    <h2 class="section-title">Work <span>Experience</span></h2>
+                    <p class="section-description">
+                        My professional experience in network operations
+                        and enterprise networking.
+                    </p>
+                </div>
 
-    <br>
+                <div class="experience-list">
 
-    <div class="card">
-        <h3>Monitoring Tools</h3>
-        <span class="tag">Cacti</span>
-        <span class="tag">MRTG</span>
-        <span class="tag">Nagios</span>
-        <span class="tag">RCA</span>
-    </div>
+                    <div class="experience-card">
+                        <div class="experience-top">
+                            <div>
+                                <h3>Junior Network Administrator</h3>
+                                <div class="company">
+                                    Mercantile Communication Pvt. Ltd.
+                                </div>
+                            </div>
 
-    <br>
+                            <div class="date">
+                                August 2025 – Present
+                            </div>
+                        </div>
 
-    <div class="card">
-        <h3>System Administration</h3>
-        <span class="tag">Windows Server</span>
-        <span class="tag">Ubuntu Linux</span>
-        <span class="tag">VMware</span>
-        <span class="tag">Microsoft 365</span>
-        <span class="tag">DNS</span>
-        <span class="tag">DHCP</span>
-    </div>
-</div>
-</section>
+                        <p>
+                            Network Operations Center (NOC) Department
+                        </p>
 
-<section id="projects">
-<div class="container">
-    <h2>Projects & Labs</h2>
+                        <ul>
+                            <li>
+                                Monitor ISP network infrastructure using
+                                Cacti, MRTG, and Nagios.
+                            </li>
+                            <li>
+                                Troubleshoot Layer 2 and Layer 3 connectivity
+                                issues across customer and backbone networks.
+                            </li>
+                            <li>
+                                Monitor routing protocols including OSPF
+                                and BGP, along with MPLS and VPLS services.
+                            </li>
+                            <li>
+                                Work with Cisco, Huawei, MikroTik, BDCOM,
+                                and FortiGate network devices.
+                            </li>
+                            <li>
+                                Coordinate with field and upstream teams
+                                for incident resolution and service restoration.
+                            </li>
+                            <li>
+                                Prepare incident reports, root cause analysis,
+                                escalation updates, and service documentation.
+                            </li>
+                        </ul>
+                    </div>
 
-    <div class="grid">
+                    <div class="experience-card">
+                        <div class="experience-top">
+                            <div>
+                                <h3>Intern Network Administrator</h3>
+                                <div class="company">
+                                    Mercantile Communication Pvt. Ltd.
+                                </div>
+                            </div>
 
-        <div class="card">
-            <h3>Network Administration Lab</h3>
+                            <div class="date">
+                                May 2025 – July 2025
+                            </div>
+                        </div>
+
+                        <p>
+                            Enterprise Network
+                        </p>
+
+                        <ul>
+                            <li>
+                                Assisted with network monitoring and
+                                troubleshooting activities.
+                            </li>
+                            <li>
+                                Learned practical networking concepts,
+                                device configuration, and connectivity checks.
+                            </li>
+                            <li>
+                                Supported enterprise network operations
+                                under the guidance of senior engineers.
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="section-label">Technical expertise</div>
+                    <h2 class="section-title">Technical <span>Skills</span></h2>
+                    <p class="section-description">
+                        Technologies and tools I work with and continue
+                        to develop my knowledge in.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card">
+                        <h3>Networking</h3>
+                        <div class="skill-tags">
+                            <span>TCP/IP</span>
+                            <span>LAN/WAN</span>
+                            <span>VLAN</span>
+                            <span>OSPF</span>
+                            <span>BGP</span>
+                            <span>MPLS</span>
+                            <span>VPLS</span>
+                            <span>VPN</span>
+                            <span>DNS</span>
+                            <span>DHCP</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Network Devices</h3>
+                        <div class="skill-tags">
+                            <span>Cisco</span>
+                            <span>Huawei</span>
+                            <span>MikroTik</span>
+                            <span>BDCOM</span>
+                            <span>FortiGate</span>
+                            <span>Routers</span>
+                            <span>Switches</span>
+                            <span>Firewalls</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Monitoring & NOC</h3>
+                        <div class="skill-tags">
+                            <span>Cacti</span>
+                            <span>MRTG</span>
+                            <span>Nagios</span>
+                            <span>Incident Management</span>
+                            <span>RCA</span>
+                            <span>SLA</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Operating Systems</h3>
+                        <div class="skill-tags">
+                            <span>Windows Server</span>
+                            <span>Ubuntu Linux</span>
+                            <span>Linux Administration</span>
+                            <span>Windows</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Virtualization & Cloud</h3>
+                        <div class="skill-tags">
+                            <span>VMware</span>
+                            <span>Microsoft Azure</span>
+                            <span>Virtual Machines</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>IT & Productivity</h3>
+                        <div class="skill-tags">
+                            <span>Microsoft 365</span>
+                            <span>Outlook 365</span>
+                            <span>POP3/IMAP</span>
+                            <span>Documentation</span>
+                            <span>Technical Support</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="section-label">Practical learning</div>
+                    <h2 class="section-title">Projects & <span>Labs</span></h2>
+                    <p class="section-description">
+                        Practical technical areas and infrastructure
+                        concepts I explore to strengthen my skills.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <div class="project-card">
+                        <div class="project-number">PROJECT 01</div>
+                        <h3>Network Monitoring & NOC Operations</h3>
+                        <p>
+                            Working with network monitoring platforms,
+                            checking device availability, tracking
+                            bandwidth utilization, and investigating
+                            network incidents.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-number">PROJECT 02</div>
+                        <h3>Routing & Switching Troubleshooting</h3>
+                        <p>
+                            Practical troubleshooting of VLANs, trunking,
+                            Layer 2 and Layer 3 connectivity, routing
+                            protocols, and network interfaces.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-number">PROJECT 03</div>
+                        <h3>Linux Server Administration Lab</h3>
+                        <p>
+                            Learning Linux user management, groups,
+                            file permissions, services, command-line
+                            administration, and server fundamentals.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-number">PROJECT 04</div>
+                        <h3>Windows Server & Virtualization Lab</h3>
+                        <p>
+                            Exploring Windows Server administration,
+                            virtualization, virtual machines, and
+                            fundamental infrastructure management.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="section-label">Academic background</div>
+                    <h2 class="section-title">My <span>Education</span></h2>
+                </div>
+
+                <div class="education-card">
+                    <h3>Bachelor of Computer Applications (BCA)</h3>
+                    <div class="institution">
+                        Asian College of Higher Studies, Kathmandu
+                    </div>
+                    <p>Tribhuvan University</p>
+                    <p>Completed: 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="section-label">Let's connect</div>
+                    <h2 class="section-title">Get In <span>Touch</span></h2>
+                    <p class="section-description">
+                        Feel free to contact me for professional
+                        opportunities, networking discussions, or
+                        technical collaboration.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+
+                    <div class="contact-card">
+                        <div class="contact-icon">✉</div>
+                        <h3>Email</h3>
+                        <a href="mailto:hemrajroka.hr@gmail.com">
+                            hemrajroka.hr@gmail.com
+                        </a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">⌖</div>
+                        <h3>Location</h3>
+                        <p>Kathmandu, Nepal</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">↗</div>
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Connect on LinkedIn
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
             <p>
-                Practical learning of VLAN configuration,
-                routing, OSPF, static routing and network
-                troubleshooting.
+                © <span id="year"></span> Hemraj Roka.
+                Built with passion for technology.
             </p>
         </div>
+    </footer>
 
-        <div class="card">
-            <h3>Linux Server Administration</h3>
-            <p>
-                Hands-on practice with Linux users,
-                groups, permissions, services and
-                server administration.
-            </p>
-        </div>
+    <script>
+        // Automatically update footer year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
 
-        <div class="card">
-            <h3>Windows Server Lab</h3>
-            <p>
-                Learning Windows Server administration,
-                Active Directory and infrastructure management.
-            </p>
-        </div>
+        // Mobile navigation
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
 
-    </div>
-</div>
-</section>
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("active");
 
-<section id="education">
-<div class="container">
-    <h2>Education</h2>
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.textContent = isOpen ? "×" : "☰";
+        });
 
-    <div class="card">
-        <h3>Bachelor of Computer Applications (BCA)</h3>
-        <p>Asian College of Higher Studies, Kathmandu</p>
-        <p>2026</p>
-    </div>
-</div>
-</section>
-
-<section id="contact">
-<div class="container contact">
-    <h2>Let's Connect</h2>
-
-    <p>
-        Interested in networking, system administration
-        and IT infrastructure opportunities.
-    </p>
-
-    <p>Email:
-        <a href="mailto:hemrajroka.hr@gmail.com">
-        hemrajroka.hr@gmail.com</a>
-    </p>
-
-    <p>Website:
-        <a href="https://hemrajroka.com.np">
-        hemrajroka.com.np</a>
-    </p>
-
-    <p>Location: Nepal</p>
-
-</div>
-</section>
-
-</main>
-
-<footer>
-    <p>© <span id="year"></span> Hemraj Roka. All Rights Reserved.</p>
-    <p>Network Engineering | ISP Operations | System Administration</p>
-</footer>
-
-<script>
-document.getElementById("year").textContent =
-new Date().getFullYear();
-</script>
+        // Close menu after clicking a navigation link
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+            });
+        });
+    </script>
 
 </body>
 </html>
